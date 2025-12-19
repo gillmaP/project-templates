@@ -1,50 +1,63 @@
-# 프로젝트 템플릿 저장소
+# Project Templates Repository
 
-다양한 딥러닝 프로젝트 구조 템플릿을 저장한 저장소입니다.
+A collection of deep learning project structure templates for rapid prototyping and production use.
 
-## 📁 템플릿 목록
+## 📁 Available Templates
 
-### 1. `accelerate_yaml/` - Accelerate + YAML 방식
-- **특징**: 단순하고 빠른 프로토타이핑에 적합
-- **장점**: 코드 단순, 멀티 GPU 자동 지원, 디버깅 쉬움
-- **단점**: 설정 관리 기본적, 실험 추적 수동
-- **사용 시나리오**: 초기 실험, 프로토타입, 소규모 프로젝트
+### 1. `accelerate_yaml/` - Accelerate + YAML Approach
+- **Features**: Simple and fast prototyping
+- **Pros**: Simple code, automatic multi-GPU support, easy debugging
+- **Cons**: Basic configuration management, manual experiment tracking
+- **Use Cases**: Initial experiments, prototypes, small-scale projects
 
-### 2. `hydra_ddp/` - Hydra + DDP 방식
-- **특징**: 강력한 설정 관리와 실험 추적
-- **장점**: 계층적 설정, 자동 실험 저장, 하이퍼파라미터 스윕
-- **단점**: 학습 곡선 높음, DDP 직접 관리 필요
-- **사용 시나리오**: 대규모 실험, 논문 작성, 팀 협업
+### 2. `hydra_ddp/` - Hydra + DDP Approach
+- **Features**: Powerful configuration management and experiment tracking
+- **Pros**: Hierarchical configs, automatic experiment saving, hyperparameter sweeps
+- **Cons**: Steeper learning curve, manual DDP management required
+- **Use Cases**: Large-scale experiments, paper writing, team collaboration
 
-### 3. `hybrid/` - Accelerate + Hydra 하이브리드
-- **특징**: 두 방식의 장점 결합
-- **장점**: Hydra 설정 관리 + Accelerate 분산 학습 자동화
-- **사용 시나리오**: 실험 관리가 중요하면서도 코드 단순성 유지
+### 3. `hybrid/` - Accelerate + Hydra Hybrid
+- **Features**: Best of both worlds
+- **Pros**: Hydra config management + Accelerate automatic distributed training
+- **Use Cases**: When experiment management is important while maintaining code simplicity
 
-## 🚀 사용 방법
+## 🚀 Quick Start
 
-1. 원하는 템플릿 폴더를 새 프로젝트로 복사
-2. 프로젝트 이름에 맞게 파일명/변수명 수정
-3. 모델 아키텍처와 데이터셋에 맞게 커스터마이징
+1. Copy the desired template folder to your new project
+2. Rename files/variables according to your project name
+3. Customize model architecture and dataset to fit your needs
 
-## 📝 각 템플릿 구조
+## 📝 Template Structure
 
-각 템플릿 폴더에는 다음이 포함됩니다:
-- `main.py`: 메인 실행 파일
-- `train/trainer.py`: Trainer 클래스
-- `config/`: 설정 파일들
-- `models/`: 모델 정의
-- `train/datasets.py`: 데이터셋 클래스
-- `utils/`: 유틸리티 함수들
-- `README.md`: 템플릿별 상세 설명
+Each template folder includes:
+- `main.py`: Main execution file
+- `train/trainer.py`: Trainer class
+- `config/` or `configs/`: Configuration files
+- `models/`: Model definitions
+- `train/datasets.py`: Dataset classes
+- `utils/`: Utility functions
+- `README.md`: Template-specific detailed documentation
 
-## 💡 템플릿 선택 가이드
+## 💡 Template Selection Guide
 
-| 프로젝트 특성 | 추천 템플릿 |
-|-------------|-----------|
-| 빠른 프로토타이핑 | `accelerate_yaml` |
-| 단순한 실험 | `accelerate_yaml` |
-| 대규모 하이퍼파라미터 스윕 | `hydra_ddp` |
-| 실험 재현성 중요 | `hydra_ddp` |
-| 설정 관리 + 코드 단순성 | `hybrid` |
+| Project Characteristics | Recommended Template |
+|------------------------|---------------------|
+| Fast prototyping | `accelerate_yaml` |
+| Simple experiments | `accelerate_yaml` |
+| Large-scale hyperparameter sweeps | `hydra_ddp` |
+| Reproducibility critical | `hydra_ddp` |
+| Config management + code simplicity | `hybrid` |
 
+## 📚 Resources
+
+- [Accelerate Documentation](https://huggingface.co/docs/accelerate/)
+- [Hydra Documentation](https://hydra.cc/)
+- [PyTorch DDP Tutorial](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html)
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to submit issues or pull requests.
+
+## 📄 License
+
+See LICENSE file for details.
