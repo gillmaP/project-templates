@@ -1,8 +1,8 @@
-# Hybrid 템플릿 (Accelerate + Hydra)
+# Hybrid Template (Accelerate + Hydra)
 
-Accelerate의 분산 학습 자동화와 Hydra의 강력한 설정 관리를 결합한 하이브리드 템플릿입니다.
+A hybrid template combining Accelerate's automatic distributed training with Hydra's powerful configuration management.
 
-## 📋 구조
+## 📋 Structure
 
 ```
 project/
@@ -13,39 +13,39 @@ project/
 │   ├── data/
 │   └── train/
 ├── train/
-│   └── trainer.py          # Accelerate 사용
+│   └── trainer.py          # Uses Accelerate
 ├── models/
 └── utils/
 ```
 
-## 🎯 특징
+## 🎯 Features
 
-- **Hydra**: 강력한 설정 관리, 실험 추적
-- **Accelerate**: 분산 학습 자동화, 코드 단순성
-- **최고의 조합**: 두 방식의 장점 결합
+- **Hydra**: Powerful configuration management, experiment tracking
+- **Accelerate**: Automatic distributed training, code simplicity
+- **Best of Both Worlds**: Combines advantages of both approaches
 
-## 🚀 실행 방법
+## 🚀 Usage
 
-### 단일 GPU
+### Single GPU
 ```bash
 python main.py
 ```
 
-### 멀티 GPU
+### Multi GPU
 ```bash
 accelerate launch main.py
-# 또는
+# or
 torchrun --nproc_per_node=4 main.py
 ```
 
-### 설정 오버라이드
+### Configuration Override
 ```bash
 python main.py train.learning_rate=1e-5
 ```
 
-## 📝 주요 코드 패턴
+## 📝 Key Code Patterns
 
-### Hydra + Accelerate 결합
+### Hydra + Accelerate Combination
 ```python
 from accelerate import Accelerator
 import hydra
@@ -53,28 +53,27 @@ from omegaconf import DictConfig
 
 @hydra.main(config_path="configs", config_name="config")
 def main(cfg: DictConfig):
-    # Hydra로 설정 관리
+    # Configuration management with Hydra
     accelerator = Accelerator(
         mixed_precision=cfg.train.mixed_precision,
         log_with="tensorboard",
         project_dir=cfg.experiment.log_dir
     )
-    # Accelerate로 분산 학습 자동화
+    # Automatic distributed training with Accelerate
     model, opt = accelerator.prepare(model, optimizer)
 ```
 
-## ✅ 장점
+## ✅ Pros
 
-- Hydra의 설정 관리 + Accelerate의 자동화
-- 실험 추적 + 코드 단순성
-- 하이퍼파라미터 스윕 + 멀티 GPU 자동 지원
+- Hydra's configuration management + Accelerate's automation
+- Experiment tracking + code simplicity
+- Hyperparameter sweeps + automatic multi-GPU support
 
-## 📊 비교
+## 📊 Comparison
 
-| 기능 | Accelerate만 | Hydra만 | Hybrid |
-|-----|------------|---------|--------|
-| 설정 관리 | 기본 | 강력 | 강력 |
-| 분산 학습 | 자동 | 수동 | 자동 |
-| 실험 추적 | 수동 | 자동 | 자동 |
-| 코드 단순성 | 높음 | 중간 | 높음 |
-
+| Feature | Accelerate Only | Hydra Only | Hybrid |
+|---------|----------------|------------|--------|
+| Config Management | Basic | Powerful | Powerful |
+| Distributed Training | Automatic | Manual | Automatic |
+| Experiment Tracking | Manual | Automatic | Automatic |
+| Code Simplicity | High | Medium | High |
