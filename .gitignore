@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Checkpoints (선택사항 - 체크포인트도 Git에 올릴지 결정)
+# *.pt
+# *.pth
+# *.ckpt
+
+# Hydra outputs (Hydra 템플릿 사용 시)
+outputs/
+.hydra/
+
+# Temporary files
+*.tmp
+*.bak
+

@@ -1,0 +1,28 @@
+# Accelerate + YAML 템플릿 설정 파일
+
+train:
+  batch_size: 64                    # GPU당 배치 크기
+  valid_batch_size: 64
+  steps: 2000                       # 총 학습 스텝
+  learning_rate: 1.0e-4
+  min_lr: 1.0e-6
+  gradient_accumulation_steps: 1     # Gradient accumulation 스텝 수
+  save_checkpoint_every: 2          # N epoch마다 체크포인트 저장
+
+model:
+  name: "YourModel"
+  # 모델별 하이퍼파라미터
+  embed_dim: 256
+  num_classes: 3
+
+data:
+  data_path: "/path/to/data"
+  num_workers: 4
+  # 데이터셋별 설정
+
+experiment:
+  seed: 42
+  mixed_precision: "fp16"          # "no" | "fp16" | "bf16"
+  log_dir: "./logs"
+  run_name: "experiment_1"
+
